@@ -1,4 +1,5 @@
 package com.alex.analise_credito.service.strategy.impl;
+import com.alex.analise_credito.constantes.MensagemConstante;
 import com.alex.analise_credito.domain.Proposta;
 import com.alex.analise_credito.exception.StrategyException;
 import com.alex.analise_credito.service.strategy.CalculoPonto;
@@ -10,11 +11,10 @@ import java.util.Random;
 @Component
 public class NomeNegativadoImpl implements CalculoPonto {
 
-
     @Override
     public int calcular(Proposta proposta) {
         if (nomeNegativado()) {
-            throw new StrategyException("Nome negativado");
+            throw new StrategyException(MensagemConstante.CLIENT_NEGATIVADO);
         }
         return 100;
     }
