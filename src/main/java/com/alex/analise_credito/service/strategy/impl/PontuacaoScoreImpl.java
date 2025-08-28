@@ -1,4 +1,5 @@
 package com.alex.analise_credito.service.strategy.impl;
+import com.alex.analise_credito.constantes.MensagemConstante;
 import com.alex.analise_credito.domain.Proposta;
 import com.alex.analise_credito.exception.StrategyException;
 import com.alex.analise_credito.service.strategy.CalculoPonto;
@@ -14,7 +15,7 @@ public class PontuacaoScoreImpl implements CalculoPonto {
     public int calcular(Proposta proposta) {
         int score = score();
         if (score <= 200){
-            throw new StrategyException("Score baixo");
+            throw new StrategyException(String.format(MensagemConstante.PONTUACAO_SERASA_BAIXA));
         } else if (score <= 400) {
             return 150;
         } else if (score <= 600) {
